@@ -1,13 +1,294 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>AYMARA - Expert Java Freelance</title>
+    <meta name="description" content="Expert Java & Blockchain freelance à Paris - Développement d'applications d'entreprise, solutions blockchain, architecture logicielle et conseil technique" />
+    <meta name="keywords" content="Java, Spring Boot, Blockchain, Développeur Freelance, Expert Technique, Paris, Architecture Logicielle" />
+    <title>AYMARA - Expert Java & Blockchain Freelance à Paris</title>
+    <!-- Preload des polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <!-- CDN Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Nouveaux styles pour le background et l'esthétique */
+        .bg-gradient-pattern {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
+            background-image: 
+                radial-gradient(circle at 25px 25px, rgba(26, 54, 93, 0.05) 2%, transparent 0%),
+                radial-gradient(circle at 75px 75px, rgba(26, 54, 93, 0.05) 2%, transparent 0%);
+            background-size: 100px 100px;
+            position: relative;
+        }
+
+        .bg-gradient-pattern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.3) 100%);
+            pointer-events: none;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 8px 32px rgba(26, 54, 93, 0.1),
+                0 2px 8px rgba(26, 54, 93, 0.05);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #1a365d 0%, #2a4a7f 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-gradient::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: rotate 30s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 
+                0 4px 6px rgba(26, 54, 93, 0.05),
+                0 10px 15px rgba(26, 54, 93, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 12px 24px rgba(26, 54, 93, 0.15),
+                0 4px 8px rgba(26, 54, 93, 0.1);
+            border-color: rgba(26, 54, 93, 0.2);
+        }
+
+        .highlight-box {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 54, 93, 0.1);
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(26, 54, 93, 0.1);
+            overflow: hidden;
+            animation: fadeInUp 0.5s ease-out forwards;
+        }
+
+        .highlight-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1a365d, #2a4a7f);
+            opacity: 0.8;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 10px 15px -3px rgba(0, 0, 0, 0.1),
+                0 4px 6px -2px rgba(0, 0, 0, 0.05),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8);
+        }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a365d;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            animation: countUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .stat-number .counter {
+            background: linear-gradient(135deg, #1a365d 0%, #2a4a7f 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #4a5568;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+        }
+
+        .stat-label::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(90deg, #1a365d, #2a4a7f);
+            opacity: 0.3;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0.5;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Amélioration des animations */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(26, 54, 93, 0.15);
+        }
+
+        .service-card:hover svg {
+            transform: scale(1.1);
+            color: #2a4a7f;
+        }
+
+        /* Amélioration du scroll smooth */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
+        }
+
+        /* Focus styles pour l'accessibilité */
+        a:focus, button:focus {
+            outline: 2px solid #1a365d;
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+
+        /* Styles pour le menu fixe */
+        .navbar-fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(26, 54, 93, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-fixed.scrolled {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .nav-link {
+            position: relative;
+            color: #1a365d;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a365d;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link:focus::after {
+            width: 100%;
+        }
+
+        .nav-link:focus {
+            outline: 2px solid #1a365d;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* Bouton retour en haut */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: rgba(26, 54, 93, 0.9);
+            color: white;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-4px);
+            background: #1a365d;
+        }
+
         /* Styles personnalisés */
         .highlight-underline {
             position: relative;
@@ -26,6 +307,12 @@
             z-index: -1;
             transform: translateY(25%) rotate(-1deg) skew(-1deg);
             border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-underline:hover::after {
+            opacity: 0.6;
+            transform: translateY(20%) rotate(-0.5deg) skew(-0.5deg);
         }
 
         .bg-aymara-pattern {
@@ -105,12 +392,14 @@
             padding: 0.25rem 0.75rem;
             border-radius: 15px;
             background: rgba(26, 54, 93, 0.1);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(8px);
         }
 
         .tech-item:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
             background: rgba(26, 54, 93, 0.15);
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.15);
         }
 
         .highlight-box {
@@ -154,6 +443,7 @@
             line-height: 1;
             margin-bottom: 0.5rem;
             font-family: 'Inter', sans-serif;
+            animation: countUp 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
         }
 
         .stat-number .counter {
@@ -195,6 +485,54 @@
                 transform: translateY(0);
             }
         }
+
+        @keyframes countUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Amélioration des animations */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-origin: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(26, 54, 93, 0.15);
+        }
+
+        .service-card:hover svg {
+            transform: scale(1.1);
+            color: #2a4a7f;
+        }
+
+        /* Amélioration du scroll smooth */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 2rem;
+        }
+
+        /* Focus styles pour l'accessibilité */
+        a:focus, button:focus {
+            outline: 2px solid #1a365d;
+            outline-offset: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
     </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -205,46 +543,134 @@
             });
 
             // Animation au scroll
+            const observerOptions = {
+                threshold: 0.5,
+                rootMargin: '0px'
+            };
+
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const counter = entry.target;
-                        const startValue = 0;
                         const endValue = parseInt(counter.getAttribute('data-value'));
-
-                        const duration = 2000;
-                        const startTime = performance.now();
-
-                        function updateCounter(currentTime) {
-                            const elapsed = currentTime - startTime;
-                            const progress = Math.min(elapsed / duration, 1);
-
-                            const currentValue = Math.floor(progress * (endValue - startValue) + startValue);
-                            counter.textContent = currentValue;
-
-                            if (progress < 1) {
-                                requestAnimationFrame(updateCounter);
-                            }
-                        }
-
-                        requestAnimationFrame(updateCounter);
+                        const animateValue = (element, start, end, duration) => {
+                            const range = end - start;
+                            const increment = range / (duration / 16);
+                            let current = start;
+                            
+                            const animate = () => {
+                                current += increment;
+                                element.textContent = Math.floor(current);
+                                
+                                if (current < end) {
+                                    requestAnimationFrame(animate);
+                                } else {
+                                    element.textContent = end;
+                                }
+                            };
+                            
+                            animate();
+                        };
+                        animateValue(counter, 0, endValue, 2000);
                         observer.unobserve(counter);
                     }
                 });
-            }, { threshold: 0.5 });
+            }, observerOptions);
 
             // Observer les compteurs
             document.querySelectorAll('.counter').forEach(counter => {
                 observer.observe(counter);
             });
+
+            // Gestion du menu mobile
+            const menuButton = document.querySelector('[aria-controls="mobile-menu"]');
+            if (menuButton) {
+                menuButton.addEventListener('click', () => {
+                    const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+                    menuButton.setAttribute('aria-expanded', !expanded);
+                    document.getElementById('mobile-menu').classList.toggle('hidden');
+                });
+            }
+
+            // Gestion du menu fixe
+            const navbar = document.querySelector('.navbar-fixed');
+            const backToTop = document.querySelector('.back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 100) {
+                    navbar.classList.add('scrolled');
+                    backToTop.classList.add('visible');
+                } else {
+                    navbar.classList.remove('scrolled');
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            // Scroll smooth pour les liens de navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        const offset = navbar.offsetHeight;
+                        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Bouton retour en haut
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </head>
 
-<body class="antialiased bg-white text-gray-800">
+<body class="antialiased bg-gradient-pattern text-gray-800">
+    <!-- Menu de navigation fixe -->
+    <nav class="navbar-fixed py-4" role="navigation" aria-label="Menu principal">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-xl font-bold text-[#1a365d]" aria-label="Retour à l'accueil">AYMARA</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#services" class="nav-link font-medium">Services</a>
+                    <a href="#projects" class="nav-link font-medium">Projets</a>
+                    <a href="#contact" class="nav-link font-medium">Contact</a>
+                </div>
+                <button class="md:hidden" aria-expanded="false" aria-controls="mobile-menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <!-- Menu mobile -->
+        <div id="mobile-menu" class="md:hidden hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#services" class="block px-3 py-2 text-base font-medium">Services</a>
+                <a href="#projects" class="block px-3 py-2 text-base font-medium">Projets</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" aria-label="Retour en haut de la page">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
     <div>
-        <!-- Hero Section -->
-        <section class="relative overflow-hidden">
+        <!-- Hero Section avec nouveau background -->
+        <section class="relative overflow-hidden hero-gradient">
             <div class="absolute inset-0 bg-aymara-pattern"></div>
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
                 <div class="text-center">
@@ -276,7 +702,7 @@
                                     <!-- Spring Icon -->
                                     <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                                         <path
-                                            d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12C20,16.42 16.42,20 12,20C7.58,20 4,16.42 4,12C4,7.58 7.58,4 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" />
+                                            d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z" />
                                     </svg>
                                     Spring
                                 </span>
@@ -332,59 +758,120 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 sm:py-32 relative overflow-hidden bg-white">
-            <div class="absolute inset-0 bg-aymara-pattern"></div>
+        <!-- Services Section avec nouveaux effets -->
+        <section id="services" class="py-20 sm:py-32 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-pattern"></div>
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="font-sans font-bold text-3xl sm:text-4xl text-[#1a365d] mb-4">
-                        Mes <span class="highlight-underline">Services</span>
+                        Mes Services
                     </h2>
+                    <p class="text-xl text-gray-600">Des solutions sur mesure pour vos projets d'entreprise</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <div
-                        class="bg-white shadow-lg p-8 rounded-lg relative group hover:-translate-y-2 transition-all duration-300">
+                    <!-- Développement Java -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-1 transition-all duration-300">
                         <div class="text-[#1a365d] mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-sans font-bold text-[#1a365d] mb-4">Développement Java</h3>
+                        <h3 class="text-xl font-bold text-[#1a365d] mb-4">Développement Java Enterprise</h3>
+                        <ul class="text-gray-600 space-y-3 text-left">
+                            <li>• Applications Spring Boot robustes et évolutives</li>
+                            <li>• Microservices et architectures distribuées</li>
+                            <li>• Intégration continue et déploiement (CI/CD)</li>
+                            <li>• Optimisation des performances</li>
+                        </ul>
                     </div>
 
-                    <div
-                        class="bg-white shadow-lg p-8 rounded-lg relative group hover:-translate-y-2 transition-all duration-300">
+                    <!-- Architecture Logicielle -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-1 transition-all duration-300">
                         <div class="text-[#1a365d] mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-sans font-bold text-[#1a365d] mb-4">Architecture logicielle</h3>
+                        <h3 class="text-xl font-bold text-[#1a365d] mb-4">Architecture Logicielle</h3>
+                        <ul class="text-gray-600 space-y-3 text-left">
+                            <li>• Conception de systèmes distribués</li>
+                            <li>• Patterns de microservices</li>
+                            <li>• Architecture hexagonale et DDD</li>
+                            <li>• Solutions cloud-native</li>
+                        </ul>
                     </div>
 
-                    <div
-                        class="bg-white shadow-lg p-8 rounded-lg relative group hover:-translate-y-2 transition-all duration-300">
+                    <!-- Blockchain -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-1 transition-all duration-300">
                         <div class="text-[#1a365d] mb-6">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
-                        <h3 class="text-xl font-sans font-bold text-[#1a365d] mb-4">Conseil technique</h3>
+                        <h3 class="text-xl font-bold text-[#1a365d] mb-4">Solutions Blockchain</h3>
+                        <ul class="text-gray-600 space-y-3 text-left">
+                            <li>• Smart contracts (Solidity)</li>
+                            <li>• Intégration Web3 et DApps</li>
+                            <li>• Solutions de tokenisation</li>
+                            <li>• Sécurité blockchain</li>
+                        </ul>
+                    </div>
+
+                    <!-- Conseil Technique -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-[#1a365d] mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#1a365d] mb-4">Conseil Technique</h3>
+                        <ul class="text-gray-600 space-y-3 text-left">
+                            <li>• Audit de code et architecture</li>
+                            <li>• Amélioration des performances</li>
+                            <li>• Formation des équipes</li>
+                            <li>• Choix technologiques</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cloud & DevOps -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-[#1a365d] mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#1a365d] mb-4">Cloud & DevOps</h3>
+                        <ul class="text-gray-600 space-y-3 text-left">
+                            <li>• Déploiement cloud-native</li>
+                            <li>• Pipelines CI/CD</li>
+                            <li>• Containerisation (Docker, K8s)</li>
+                            <li>• Monitoring et observabilité</li>
+                        </ul>
+                    </div>
+
+                    <!-- Modernisation -->
+                    <div class="bg-white rounded-xl shadow-lg p-8 transform hover:-translate-y-1 transition-all duration-300">
+                        <div class="text-[#1a365d] mb-6">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-[#1a365d] mb-4">Modernisation d'Applications</h3>
+                        <ul class="text-gray-600 space-y-3 text-left">
+                            <li>• Migration vers le cloud</li>
+                            <li>• Refactoring de legacy</li>
+                            <li>• Adoption des microservices</li>
+                            <li>• Amélioration continue</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 sm:py-32 relative overflow-hidden bg-white">
-            <div class="absolute inset-0 bg-aymara-pattern"></div>
+        <!-- Projects Section avec nouveaux effets -->
+        <section id="projects" class="py-20 sm:py-32 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-pattern opacity-50"></div>
             <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="font-sans font-bold text-3xl sm:text-4xl text-[#1a365d] mb-4">
@@ -453,94 +940,85 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 sm:py-32 relative overflow-hidden bg-white">
-            <div class="absolute inset-0 bg-aymara-pattern"></div>
-            <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div>
-                    <h2 class="font-sans font-bold text-3xl sm:text-4xl text-[#1a365d] mb-8">
-                        Contactez-moi
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="flex items-center space-x-4">
-                            <div
-                                class="flex-shrink-0 w-12 h-12 bg-[#1a365d] rounded-full flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <!-- Contact Section avec nouveau design -->
+        <section id="contact" class="py-8 sm:py-12 relative overflow-hidden contact-section">
+            <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="font-sans font-bold text-3xl sm:text-4xl text-[#1a365d] mb-12">
+                    Contactez-moi
+                </h2>
+                <!-- Contact Info Card -->
+                <div class="max-w-xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
+                    <div class="p-8">
+                        <!-- Email Section -->
+                        <div class="flex items-center justify-center mb-8">
+                            <div class="w-16 h-16 bg-gradient-to-r from-[#1a365d] to-[#2a4a7f] rounded-full flex items-center justify-center transform hover:rotate-12 transition-transform duration-300">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                 </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-sans font-bold text-[#1a365d]">Email</h3>
-                                <a href="mailto:contact@aymara.io"
-                                    class="text-gray-700 hover:text-[#1a365d] transition-colors contact-link">contact@aymara.io</a>
                             </div>
                         </div>
-                        <div class="flex items-center space-x-4">
-                            <div
-                                class="flex-shrink-0 w-12 h-12 bg-[#1a365d] rounded-full flex items-center justify-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none"
-                                    viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-lg font-sans font-bold text-[#1a365d]">Localisation</h3>
-                                <p class="text-gray-700">Paris, France</p>
-                            </div>
+                        
+                        <div class="text-center">
+                            <h3 class="text-xl font-sans font-bold text-[#1a365d] mb-3">Discutons de votre projet</h3>
+                            <p class="text-gray-600 mb-6">N'hésitez pas à me contacter pour échanger sur vos besoins en développement</p>
+                            <a href="mailto:contact@aymara.io" 
+                               class="inline-block bg-gradient-to-r from-[#1a365d] to-[#2a4a7f] text-white px-8 py-3 rounded-full shadow-lg hover:shadow-xl font-medium transition-all duration-300 hover:-translate-y-1 group">
+                                <span class="flex items-center justify-center">
+                                    <span class="mr-2">contact@aymara.io</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg>
+                                </span>
+                            </a>
                         </div>
                     </div>
-
-                    <!-- Bouton de contact direct -->
-                    <div class="mt-8">
-                        <a href="mailto:contact@aymara.io"
-                            class="inline-block bg-gradient-to-r from-[#1a365d] to-[#2a4a7f] text-white px-8 py-4 rounded-md shadow-lg hover:shadow-xl font-medium text-lg transition-transform hover:-translate-y-1">
-                            Me Contacter
-                        </a>
+                    
+                    <!-- Location Section -->
+                    <div class="bg-gray-50 p-6 flex items-center justify-center space-x-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#1a365d]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                        <span class="text-gray-600">Paris, France</span>
                     </div>
                 </div>
             </div>
         </section>
+
+        <!-- Footer avec nouveau style -->
+        <footer class="bg-white border-t border-gray-200 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-pattern opacity-30"></div>
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold text-[#1a365d] mb-4">AYMARA</h3>
+                        <p class="text-gray-600">
+                            Expert en développement Java et solutions blockchain.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-[#1a365d] mb-4">Technologies</h3>
+                        <ul class="space-y-2 text-gray-600">
+                            <li>Java / Spring Boot</li>
+                            <li>Cloud Computing</li>
+                            <li>Blockchain</li>
+                            <li>Méthodes Agiles</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-[#1a365d] mb-4">Localisation</h3>
+                        <p class="text-gray-600">
+                            Paris, France<br>
+                            Disponible pour des projets à distance
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <p class="text-center text-gray-500 text-sm">
+                        2024 AYMARA. Tous droits réservés.
+                    </p>
+                </div>
+            </div>
+        </footer>
     </div>
-
-    <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h3 class="text-lg font-semibold text-[#1a365d] mb-4">AYMARA</h3>
-                    <p class="text-gray-600">
-                        Expert en développement Java et solutions blockchain, basé en région parisienne.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-[#1a365d] mb-4">Technologies</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li>Java / Spring Boot</li>
-                        <li>Cloud Computing</li>
-                        <li>Blockchain</li>
-                        <li>Méthodes Agiles</li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="text-lg font-semibold text-[#1a365d] mb-4">Localisation</h3>
-                    <p class="text-gray-600">
-                        Paris, France<br>
-                        Disponible pour des projets à distance
-                    </p>
-                </div>
-            </div>
-            <div class="mt-8 pt-8 border-t border-gray-200">
-                <p class="text-center text-gray-500 text-sm">
-                    © 2024 AYMARA. Tous droits réservés.
-                </p>
-            </div>
-        </div>
-    </footer>
 </body>
-
-</html>
